@@ -1,13 +1,16 @@
 ---
-import { getCollection } from "astro:content";
+// import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import PostRow from "../../components/Blog/PostRow.astro";
+import Card from "../../components/Card/index.astro";
+import { Icon } from "astro-icon/components";
+import Button from "../../components/Button.astro";
+// import PostRow from "../../components/Blog/PostRow.astro";
 
-const posts = (await getCollection("blog"))?.sort(
-  (blogEntryA, blogEntryB) =>
-    (blogEntryB.data.pubDate || new Date()).getTime() -
-    (blogEntryA.data.pubDate || new Date()).getTime()
-);
+// const posts = (await getCollection("blog"))?.sort(
+//   (blogEntryA, blogEntryB) =>
+//     (blogEntryB.data.pubDate || new Date()).getTime() -
+//     (blogEntryA.data.pubDate || new Date()).getTime()
+// );
 ---
 
 <script>
@@ -20,8 +23,8 @@ const posts = (await getCollection("blog"))?.sort(
 </script>
 
 <Layout
-  title="Gianmarco Cavallo - Blog"
-  description="Software developer with strong focus on the user experience animations and micro interactions"
+  title="Randy Fuerte - Projects"
+  description="a software engineer with extensive experience with ECommerce and Financial technology projects with strong focus on user experience, micro interactions and marketing"
 >
   <main
     class="w-screen h-screen flex flex-col justify-start items-start max-w-3xl mx-auto p-8"
@@ -31,17 +34,156 @@ const posts = (await getCollection("blog"))?.sort(
       class="text-white bg-neutral-900 hover:bg-neutral-800 px-4 py-2 mb-8 border-1 border-solid border-neutral-600 rounded-lg"
       >Back</a
     >
-    <h1 class="text-4xl font-bold mb-4 text-neutral-100">Posts</h1>
+    <h1 class="text-4xl font-bold mb-4 text-neutral-100">Projects</h1>
     <ul class="w-full">
-      {
-        posts?.map((post) => (
-          <PostRow
-            title={post.data.title || "No title"}
-            date={post.data.pubDate || new Date()}
-            url={post.slug}
-          />
-        ))
-      }
+      <li
+        class="w-full text-neutral-100 hover:text-neutral-400 ease-in-out transition-colors border-b-neutral-400"
+      >
+        <!-- <Card /> -->
+
+        <Card>
+          <div class="flex flex-col h-full" style="margin-bottom: 20px;">
+            <header class="flex items-center">
+              <h1 class="text-white text-xl font-bold">SM Malls Online</h1>
+            </header>
+            <p>
+              Your all-in-one app bringing the fun of SM Malling to your phone!
+              Enhance your malling experience with digital and in-mall shopping
+              at your favorite SM Malls.
+            </p>
+          </div>
+
+          <div class="flex gap-4">
+            <a
+              class="text-sm md:text-base decoration-none flex justify-between"
+              href="https://play.google.com/store/apps/details?id=com.smsupermalls.smmallsonline&hl=en&gl=US"
+            >
+              <Button aria-label="linkedin profile">
+                <Icon name="ri:google-play-line" class="h-6" />
+                <span class="sr-only">Google Playstore</span>
+              </Button>
+            </a>
+            <a
+              class="text-sm md:text-base decoration-none flex justify-between"
+              href="https://apps.apple.com/ph/app/sm-malls-online/id1524596778"
+            >
+              <Button aria-label="linkedin profile">
+                <Icon name="ri:apple-line" class="h-6" />
+                <span class="sr-only">Apple Appstore</span>
+              </Button>
+            </a>
+          </div>
+        </Card>
+
+        <div class="box" style="width: 200px; margin: 10px;"></div>
+
+        <Card>
+          <div class="flex flex-col h-full" style="margin-bottom: 20px;">
+            <header class="flex items-center">
+              <h1 class="text-white text-xl font-bold">UnionDigital</h1>
+            </header>
+            <p>
+              A financial technology application that gives user a digitized
+              banking experience enabling them to transfer to multiple channels
+              as well as providing loans that is built with Flutter.
+            </p>
+          </div>
+
+          <div class="flex gap-4">
+            <a
+              class="text-sm md:text-base decoration-none flex justify-between"
+              href="https://play.google.com/store/apps/details?id=ph.uniondigital.superapp&hl=en&gl=US"
+            >
+              <Button aria-label="linkedin profile">
+                <Icon name="ri:google-play-line" class="h-6" />
+                <span class="sr-only">Google Playstore</span>
+              </Button>
+            </a>
+            <a
+              class="text-sm md:text-base decoration-none flex justify-between"
+              href="https://apps.apple.com/us/app/uniondigital-bank-ubeh-bank/id1631487699"
+            >
+              <Button aria-label="linkedin profile">
+                <Icon name="ri:apple-line" class="h-6" />
+                <span class="sr-only">Apple Appstore</span>
+              </Button>
+            </a>
+          </div>
+        </Card>
+
+        <div class="box" style="width: 200px; margin: 10px;"></div>
+
+        <Card>
+          <div class="flex flex-col h-full" style="margin-bottom: 20px;">
+            <header class="flex items-center">
+              <h1 class="text-white text-xl font-bold">Casha Inc</h1>
+            </header>
+            <p>
+              A banking application dedicated to Philippines' local government
+              unit to aid them with financial services and also providing a
+              legitimate salary loan solution for Filipino workers in the
+              country.
+            </p>
+          </div>
+
+          <div class="flex gap-4">
+            <a
+              class="text-sm md:text-base decoration-none flex justify-between"
+              href="https://play.google.com/store/apps/dev?id=8944124860921050454&hl=en&gl=US"
+            >
+              <Button aria-label="linkedin profile">
+                <Icon name="ri:google-play-line" class="h-6" />
+                <span class="sr-only">Google Playstore</span>
+              </Button>
+            </a>
+            <a
+              class="text-sm md:text-base decoration-none flex justify-between"
+              href="https://apps.apple.com/ph/app/casha-inc/id6478656336"
+            >
+              <Button aria-label="linkedin profile">
+                <Icon name="ri:apple-line" class="h-6" />
+                <span class="sr-only">Apple Appstore</span>
+              </Button>
+            </a>
+          </div>
+        </Card>
+
+        <div class="box" style="width: 200px; margin: 10px;"></div>
+
+        <Card>
+          <div class="flex flex-col h-full" style="margin-bottom: 20px;">
+            <header class="flex items-center">
+              <h1 class="text-white text-xl font-bold">Mobii</h1>
+            </header>
+            <p>
+              An ECommerce application that operates in the mobility space. The
+              application provides services for users to be able to rent a car
+              as well as car owners renting their vehicles.
+            </p>
+          </div>
+
+          <div class="flex gap-4">
+            <a
+              class="text-sm md:text-base decoration-none flex justify-between"
+              href="https://play.google.com/store/apps/details?id=ph.mobii.app"
+            >
+              <Button aria-label="linkedin profile">
+                <Icon name="ri:google-play-line" class="h-6" />
+                <span class="sr-only">Google Playstore</span>
+              </Button>
+            </a>
+            <a
+              class="text-sm md:text-base decoration-none flex justify-between"
+              href="https://apps.apple.com/ph/app/mobii-philippines-car-share/id6446243454"
+            >
+              <Button aria-label="linkedin profile">
+                <Icon name="ri:apple-line" class="h-6" />
+                <span class="sr-only">Apple Appstore</span>
+              </Button>
+            </a>
+          </div>
+        </Card>
+      </li>
     </ul>
   </main>
 </Layout>
